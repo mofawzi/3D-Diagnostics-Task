@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsServiceService } from '../../services/products-service.service';
 
 @Component({
   selector: 'app-products',
@@ -6,26 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  products: any;
 
-  products: any = [
-    {
-      name: 'Product-1',
-      description: 'Product description',
-      price: 22,
-    }, {
-      name: 'Product-2',
-      description: 'Product description',
-      price: 52,
-    }, {
-      name: 'Product-3',
-      description: 'Product description',
-      price: 18,
-    }
-  ];
-
-  constructor() { }
+  constructor(private productsService: ProductsServiceService) { }
 
   ngOnInit(): void {
+    const productsLimit: number = 9;
+    this.products = this.productsService.getLimitedProducts(productsLimit);
+    console.log(this.products);
+
   }
 
 }
