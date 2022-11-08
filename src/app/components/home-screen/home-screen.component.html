@@ -1,7 +1,5 @@
-<div class="card shadow-sm h-75 w-75 mr-50">
+<div class="card shadow-sm h-75 w-75 mr-50" [ngClass]="isMouseOver ? 'green' : 'red'">
   <div class="card-body">
-
-    <user [userOptions]="user"></user>
-
+    <user [userOptions]="user" (mouseover)='mouseOver()' (mouseout)='mouseOut()'></user>
   </div>
 </div>

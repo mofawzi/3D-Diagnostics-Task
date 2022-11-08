@@ -8,6 +8,8 @@ import { UsersServiceService } from './../../services/users-service.service';
 })
 export class HomeScreenComponent implements OnInit {
   user: any;
+  isMouseOver: boolean = false;
+
   constructor(private usersService: UsersServiceService) { }
 
   ngOnInit(): void {
@@ -17,6 +19,14 @@ export class HomeScreenComponent implements OnInit {
         this.user = res;
         console.log(res);
       });
+  }
+
+  mouseOver() {
+    this.isMouseOver = true;
+  }
+
+  mouseOut() {
+    this.isMouseOver = false;
   }
 
 }
