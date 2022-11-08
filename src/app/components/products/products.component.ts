@@ -13,9 +13,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     const productsLimit: number = 9;
-    this.products = this.productsService.getLimitedProducts(productsLimit);
-    console.log(this.products);
 
+    this.productsService.getLimitedProducts(productsLimit)
+      .subscribe(res => {
+        this.products = res.products;
+        console.log(this.products);
+      });
   }
 
 }
